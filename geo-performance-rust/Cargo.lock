@@ -265,8 +265,7 @@ dependencies = [
 [[package]]
 name = "geo"
 version = "0.20.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d7e2e3be15682a45e9dfe9a04f84bff275390047204ab22f3c6b2312fcfb9e24"
+source = "git+https://github.com/georust/geo?branch=mkirk/intersection-perf#915a0670fbca14ccfe9c950c8dadc5fe3c9750ee"
 dependencies = [
  "geo-types",
  "geographiclib-rs",
