@@ -48,8 +48,8 @@ async fn main() {
     println!("zones converted after: {}", now.elapsed().as_millis());
     println!("nr plots {:?} nr zones {:?}", plot_polygons.len(), zone_polygons.len());
 
-    // intersection::geo_clipper::intersect(&plot_polygons, &zone_polygons);
-    intersection::geo::intersect(&plot_polygons, &zone_polygons);
+    intersection::geo_clipper::intersect(&plot_polygons, &zone_polygons);
+    // intersection::geo::intersect(&plot_polygons, &zone_polygons);
 
     println!("Intersection test done after: {}", now.elapsed().as_millis());
 }

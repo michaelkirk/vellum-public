@@ -1,4 +1,3 @@
-use geojson::*;
 use geo::algorithm::intersects::Intersects;
 
 pub fn intersect(a: &Vec<geo::Polygon<f64>>, b: &Vec<geo::Polygon<f64>>) {
@@ -20,6 +19,5 @@ pub fn intersect(a: &Vec<geo::Polygon<f64>>, b: &Vec<geo::Polygon<f64>>) {
         }
         a_index += 1;
     }
-    println!("Intersections: {:?} {:?}", intersects, non_intersects);
-
+    println!("Intersection tests: {:?} Intersections: {:?} Non-intersections: {:?}", intersects + non_intersects, intersects, non_intersects);
 }
