@@ -44,12 +44,22 @@ async fn main() {
             }
         }
     }
-    
+
     println!("zones converted after: {}", now.elapsed().as_millis());
     println!("nr plots {:?} nr zones {:?}", plot_polygons.len(), zone_polygons.len());
 
-    intersection::geo_clipper::intersect(&plot_polygons, &zone_polygons);
-    // intersection::geo::intersect(&plot_polygons, &zone_polygons);
+    {
+        let now = Instant::now();
+        println!("## geo-clipper started at: {}", now.elapsed().as_millis());
+        intersection::geo_clipper::intersect(&plot_polygons, &zone_polygons);
+        println!("geo-clipper intersection test duration: {}", now.elapsed().as_millis());
+    }
 
-    println!("Intersection test done after: {}", now.elapsed().as_millis());
+
+    {
+        let now = Instant::now();
+        println!("## geo");
+        intersection::geo::intersect(&plot_polygons, &zone_polygons);
+        println!("geo intersection test duration: {}", now.elapsed().as_millis());
+    }
 }
