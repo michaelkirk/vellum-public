@@ -115,6 +115,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "float_next_after"
+version = "0.1.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4fc612c5837986b7104a87a0df74a5460931f1c5274be12f8d0f40aa2f30d632"
+dependencies = [
+ "num-traits",
+]
+
+[[package]]
 name = "fnv"
 version = "1.0.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -276,6 +285,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "geo-booleanop"
+version = "0.3.2"
+source = "git+https://github.com/21re/rust-geo-booleanop#7198a0321c3274de6f21aa5ee7456a4763151338"
+dependencies = [
+ "float_next_after",
+ "geo-types",
+ "num-traits",
+ "robust",
+]
+
+[[package]]
 name = "geo-clipper"
 version = "0.7.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -291,6 +311,7 @@ version = "0.1.0"
 dependencies = [
  "futures",
  "geo",
+ "geo-booleanop",
  "geo-clipper",
  "geo-types",
  "geojson",
