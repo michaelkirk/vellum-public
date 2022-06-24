@@ -1,11 +1,8 @@
 use geo_clipper::Clipper;
-// use std::convert::TryFrom;
-// use geo_types::*;
-// use geo::Polygon;
-// use geo::algorithm::intersects::Intersects;
-use geo::algorithm::area::*;
+use geo::algorithm::Area;
+use geo::geometry::Polygon;
 
-pub fn intersect(a: &Vec<geo::Polygon<f64>>, b: &Vec<geo::Polygon<f64>>) {
+pub fn intersect(a: &Vec<Polygon>, b: &Vec<Polygon>) {
 
     let mut intersects = 0;
     let mut non_intersects = 0;
@@ -16,7 +13,7 @@ pub fn intersect(a: &Vec<geo::Polygon<f64>>, b: &Vec<geo::Polygon<f64>>) {
         while b_index < b.len() {
             let res = a[a_index].intersection(&b[b_index], 1000000.0);
 
-            if res.signed_area() > 0. {
+            if res.unsigned_area() > 0. {
                 intersects += 1;
             } else {
                 non_intersects += 1;

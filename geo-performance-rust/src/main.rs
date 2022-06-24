@@ -50,7 +50,7 @@ async fn main() {
 
     {
         let now = Instant::now();
-        println!("## geo-clipper started at: {}", now.elapsed().as_millis());
+        println!("\n## geo-clipper started...");
         intersection::geo_clipper::intersect(&plot_polygons, &zone_polygons);
         println!("geo-clipper intersection test duration: {}", now.elapsed().as_millis());
     }
@@ -58,7 +58,14 @@ async fn main() {
 
     {
         let now = Instant::now();
-        println!("## geo");
+        println!("\n## geo_boolean_ops started...");
+        intersection::geo_boolean_ops::intersect(&plot_polygons, &zone_polygons);
+        println!("geo-boolean-ops intersection test duration: {}", now.elapsed().as_millis());
+    }
+
+    {
+        let now = Instant::now();
+        println!("\n## geo started");
         intersection::geo::intersect(&plot_polygons, &zone_polygons);
         println!("geo intersection test duration: {}", now.elapsed().as_millis());
     }

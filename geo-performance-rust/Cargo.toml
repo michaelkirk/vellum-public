@@ -15,8 +15,7 @@ futures = "0.3.19"
 geojson = { version = "0.22.3", features = ["geo-types"] }
 geo-types = "0.7.4"
 geo-clipper = "0.7.3"
-# geo = "0.20.1"
-geo = { git = "https://github.com/georust/geo", branch = "mkirk/intersection-perf" }
+geo = "0.22.0"
 geo-booleanop = { git = "https://github.com/21re/rust-geo-booleanop" }
 json = "0.12.4"
 serde = { version = "1.0.133", features = ["derive"] }

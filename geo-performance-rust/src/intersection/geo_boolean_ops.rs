@@ -1,9 +1,8 @@
-use geo::algorithm::{Area, BooleanOps};
+use geo::algorithm::Area;
 use geo::geometry::Polygon;
-
+use geo_booleanop::boolean::BooleanOp;
 
 pub fn intersect(a: &Vec<Polygon>, b: &Vec<Polygon>) {
-
     let mut intersects = 0;
     let mut non_intersects = 0;
 
@@ -11,9 +10,8 @@ pub fn intersect(a: &Vec<Polygon>, b: &Vec<Polygon>) {
     while a_index < a.len() {
         let mut b_index = 0;
         while b_index < b.len() {
-            let res = a[a_index].intersection(&b[b_index]);
-
-            if res.unsigned_area() > 0. {
+            let intersection = a[a_index].intersection(&b[b_index]);
+            if intersection.unsigned_area() > 0.0 {
                 intersects += 1;
             } else {
                 non_intersects += 1;
